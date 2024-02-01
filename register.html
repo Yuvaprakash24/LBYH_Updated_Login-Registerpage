@@ -141,6 +141,7 @@
       <p id="subtitle"><b>Are you ready to take your learning to the next level?</b> <br>
         Register now and get access to courses your intersted in.</p>
         <form class="input_container">
+          <div class="alert alert-danger alert_msg" id="alertMessage" role="alert" style="display: none;"></div>
           <label><b>Full Name</b></label>
           <input type="text" placeholder="Enter your Full Name" required />
           <label><b>Phone No</b></label>
@@ -165,7 +166,7 @@
               ><i onclick="myFunction()" class="fa-solid fa-eye-slash pe-2"></i
             ></span>
           </div>
-          <div class="alert alert-danger alert_msg">Password must be at least 8 characters long, contain at least 1 digit from [0-9], 1 uppercase from [A-Z], and 1 special character [!@#$%^&*].</div>
+          <!-- <div class="alert alert-danger alert_msg">Password must be at least 8 characters long, contain at least 1 digit from [0-9], 1 uppercase from [A-Z], and 1 special character [!@#$%^&*].</div> -->
           <label><b>Confirm password</b></label>
           <div class="passfield1">
             <input
@@ -182,7 +183,7 @@
   
   
           <!-- <button class="r-btn">Register</button> -->
-          <input class="r-btn" type="submit" />
+          <input onclick="return validatePassword()" class="r-btn" type="submit" />
         </form>
     </section>
     </center>
@@ -203,6 +204,23 @@
           x.type = "password";
         }
       }
+      function validatePassword() {
+        const password = document.getElementById('createPass').value;
+        const confirmPassword = document.getElementById('confirmPass').value;
+
+        const passwordRegex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(.{8,})$/;
+
+        const alertMessageContainer = document.getElementById('alertMessage');
+
+        if (!passwordRegex.test(password) || password !== confirmPassword) {
+          alertMessageContainer.innerHTML = "Password must be at least 8 characters long, contain at least 1 digit from [0-9], 1 uppercase from [A-Z], and 1 special character [!@#$%^&*].";
+          alertMessageContainer.style.display = "block";
+          return false
+        } else {
+          alertMessageContainer.style.display = "none";
+          //alert("Successfully created!"); // You can replace this alert with further actions
+          return true
+        }}
     </script>
     <body src="script.js"></body>
   </body>
