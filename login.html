@@ -174,12 +174,17 @@
     <script>
       function myFunction() {
         var x = document.getElementById("crackpass");
-        if (x.type === "password") {
-          x.type = "text";
-        } else {
-          x.type = "password";
-        }
-      }
+        var icon = document.querySelector(".passfield i");
+
+    if (x.type === "password") {
+      x.type = "text";
+      icon.classList.remove("fa-eye-slash");
+      icon.classList.add("fa-eye");
+    } else {
+      x.type = "password";
+      icon.classList.remove("fa-eye");
+      icon.classList.add("fa-eye-slash");
+    }
     </script>
     <script src="script.js"></script>
   </body>
