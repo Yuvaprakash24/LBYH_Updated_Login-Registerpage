@@ -91,6 +91,16 @@ input {
   background-color: white;
 }
 
+.passfield2 {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  width: 20rem;
+  border: 2px solid #0080809e;
+  border-radius: 20px;
+  background-color: white;
+}
+
 .crackpass {
   border: none;
   outline: none;
@@ -148,6 +158,9 @@ input {
   .passfield1 {
     width: 100%;
   }
+  .passfield2 {
+    width: 100%;
+  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -174,6 +187,9 @@ input {
   }
 
   .passfield1 {
+    width: 100%;
+  }
+  .passfield2 {
     width: 100%;
   }
 
