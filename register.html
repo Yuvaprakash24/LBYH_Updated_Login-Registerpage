@@ -190,19 +190,31 @@
     <script>
       function myFunction() {
         var x = document.getElementById("createPass");
-        if (x.type === "password") {
-          x.type = "text";
-        } else {
-          x.type = "password";
-        }
+        var icon = document.querySelector("#createPass i");
+
+    if (x.type === "password") {
+      x.type = "text";
+      icon.classList.remove("fa-eye-slash");
+      icon.classList.add("fa-eye");
+    } else {
+      x.type = "password";
+      icon.classList.remove("fa-eye");
+      icon.classList.add("fa-eye-slash");
+    }
       }
       function myFunction2() {
         var x = document.getElementById("confirmPass");
-        if (x.type === "password") {
-          x.type = "text";
-        } else {
-          x.type = "password";
-        }
+        var icon = document.querySelector("#confirmPass i");
+
+    if (x.type === "password") {
+      x.type = "text";
+      icon.classList.remove("fa-eye-slash");
+      icon.classList.add("fa-eye");
+    } else {
+      x.type = "password";
+      icon.classList.remove("fa-eye");
+      icon.classList.add("fa-eye-slash");
+    }
       }
       function validatePassword() {
         const password = document.getElementById('createPass').value;
